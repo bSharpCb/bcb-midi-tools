@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <title>Virtual MIDI Keyboard</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="lookup-term"></p>
+    <p id="lookup-def"></p>
+  </div>
+</div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h1 id="lesson-title">Chord Anatomy</h1>
+            <div id="osc-box">
+            <div id="osc1">
+                <a href="#">Oscillator 1</a>
+                    <select id="osc1-type">
+                    <option value="0">Sine</option>
+                    <option value="1">Square</option>
+                    <option value="2">Sawtooth</option>
+                    <option value="3">Triangle</option>
+                    </select>
+        
+        
+                    <select id="osc1-harmonize">
+                    <option value="0">None</option>
+                    <option value="1">5th up</option>
+                    <option value='2'>5th down</option>
+                    <option value="3">Octave up</option>
+                    <option value="4">Octave down</option>
+                    <option value="5">Third up</option>
+                    <option value="6">Third down</option>
+                    </select>
+                </div>
+            <div id="osc2">
+                <a href="#">Oscillator 2</a>
+                    <select id="osc2-type">
+                    <option value="0">Sine</option>
+                    <option value="1">Square</option>
+                    <option value="2">Sawtooth</option>
+                    <option value="3">Triangle</option>
+                    </select>
+        
+        
+                    <select id="osc2-harmonize">
+                    <option value="0">None</option>
+                    <option value="1">5th up</option>
+                    <option value='2'>5th down</option>
+                    <option value="3">Octave up</option>
+                    <option value="4">Octave down</option>
+                    <option value="5">Third up</option>
+                    <option value="6">Third down</option>
+                    </select>
+                </div>
+                <button id="synbtn" onclick="makeSynth()">New synth</button>
+            </div>
+            <button id="toggle-osc-box" onclick="toggleOscBox()">Show OscBox</button>
+        </div>
+
+        <div id="content">
+        <span id="bcb-menu" onclick="openNav()">&#9776; B#Cb</span>
+
+        <div id="whiteboard">
+            <div id="wb-words">
+                <p> In the next few minutes, you'll learn to play 7 different chords in the key of C Major</p>
+                <p> These are 4 note chords, and each of these chords has a <i>name</i> </p>
+                <p> These names are determined by which 4 notes you play</p>
+                <p> The lowest (leftmost) note determines the <i>root</i> of that chord</p>
+                <p> Any notes played on top of that will detemine the <i>quality</i> of that chord</p>
+
+                
+
+            </div>
+            <div id="wb-figure">
+                <ul>
+                    <li> <span class="rNote"><b>C</b></span><span class="cHname wordbank">Maj7</span></li>
+                    <li> <span class="rNote"><b>D</b></span><span class="cHname wordbank">m7</span></li>
+                    <li> <span class="rNote"><b>E</b></span><span class="cHname wordbank">m7</span></li>
+                    <li> <span class="rNote"><b>F</b></span><span class="cHname wordbank">Maj7</span></li>
+                    <li> <span class="rNote"><b>G</b></span><span class="cHname wordbank">7</span></li>
+                    <li> <span class="rNote"><b>A</b></span><span class="cHname wordbank">m7</span></li>
+                    <li> <span class="rNote"><b>B</b></span><span class="cHname wordbank">m7b5</span></li>
+                </ul>  
+            </div>
+            
+            <button id="wordbank-open" onclick="showWb()">Show Wordbank</button>
+            <span id="wordbank">
+            </span>
+        </div>
+        
+        <div id="piano-ui">
+            <div id="n36" class="keys white"><span class="noteName">C</span></div>
+            <div id="n37" class="keys black"><span class="noteName">C#</span></div>
+            <div id="n38" class="keys white"><span class="noteName">D</span></div>
+            <div id="n39" class="keys black"><span class="noteName">Eb</span></div>
+            <div id="n40" class="keys white"><span class="noteName">E</span></div>
+            <div id="n41" class="keys white"><span class="noteName">F</span></div>
+            <div id="n42" class="keys black"><span class="noteName">F#</span></div>
+            <div id="n43" class="keys white"><span class="noteName">G</span></div>
+            <div id="n44" class="keys black"><span class="noteName">Ab</span></div>
+            <div id="n45" class="keys white"><span class="noteName">A</span></div>
+            <div id="n46" class="keys black"><span class="noteName">Bb</span></div>
+            <div id="n47" class="keys white"><span class="noteName">B</span></div>
+
+            <div id="n48" class="keys white"><span class="noteName">C</span></div>
+            <div id="n49" class="keys black"><span class="noteName">C#</span></div>
+            <div id="n50" class="keys white"><span class="noteName">D</span></div>
+            <div id="n51" class="keys black"><span class="noteName">Eb</span></div>
+            <div id="n52" class="keys white"><span class="noteName">E</span></div>
+            <div id="n53" class="keys white"><span class="noteName">F</span></div>
+            <div id="n54" class="keys black"><span class="noteName">F#</span></div>
+            <div id="n55" class="keys white"><span class="noteName">G</span></div>
+            <div id="n56" class="keys black"><span class="noteName">Ab</span></div>
+            <div id="n57" class="keys white"><span class="noteName">A</span></div>
+            <div id="n58" class="keys black"><span class="noteName">Bb</span></div>
+            <div id="n59" class="keys white"><span class="noteName">B</span></div>
+
+            <div id="n60" class="keys white"><span class="noteName">C</span></div>
+            <div id="n61" class="keys black"><span class="noteName">C#</span></div>
+            <div id="n62" class="keys white"><span class="noteName">D</span></div>
+            <div id="n63" class="keys black"><span class="noteName">Eb</span></div>
+            <div id="n64" class="keys white"><span class="noteName">E</span></div>
+            <div id="n65" class="keys white"><span class="noteName">F</span></div>
+            <div id="n66" class="keys black"><span class="noteName">F#</span></div>
+            <div id="n67" class="keys white"><span class="noteName">G</span></div>
+            <div id="n68" class="keys black"><span class="noteName">Ab</span></div>
+            <div id="n69" class="keys white"><span class="noteName">A</span></div>
+            <div id="n70" class="keys black"><span class="noteName">Bb</span></div>
+            <div id="n71" class="keys white"><span class="noteName">B</span></div>
+
+            <div id="n72" class="keys white"><span class="noteName">C</span></div>
+            <div id="n73" class="keys black"><span class="noteName">C#</span></div>
+            <div id="n74" class="keys white"><span class="noteName">D</span></div>
+            <div id="n75" class="keys black"><span class="noteName">Eb</span></div>
+            <div id="n76" class="keys white"><span class="noteName">E</span></div>
+            <div id="n77" class="keys white"><span class="noteName">F</span></div>
+            <div id="n78" class="keys black"><span class="noteName">F#</span></div>
+            <div id="n79" class="keys white"><span class="noteName">G</span></div>
+            <div id="n80" class="keys black"><span class="noteName">Ab</span></div>
+            <div id="n81" class="keys white"><span class="noteName">A</span></div>
+            <div id="n82" class="keys black"><span class="noteName">Bb</span></div>
+            <div id="n83" class="keys white"><span class="noteName">B</span></div>
+
+            <div id="n84" class="keys white"><span class="noteName">C</span></div>
+            <div id="n85" class="keys black"><span class="noteName">C#</span></div>
+            <div id="n86" class="keys white"><span class="noteName">D</span></div>
+            <div id="n87" class="keys black"><span class="noteName">Eb</span></div>
+            <div id="n88" class="keys white"><span class="noteName">E</span></div>
+            <div id="n89" class="keys white"><span class="noteName">F</span></div>
+            <div id="n90" class="keys black"><span class="noteName">F#</span></div>
+            <div id="n91" class="keys white"><span class="noteName">G</span></div>
+            <div id="n92" class="keys black"><span class="noteName">Ab</span></div>
+            <div id="n93" class="keys white"><span class="noteName">A</span></div>
+            <div id="n94" class="keys black"><span class="noteName">Bb</span></div>
+            <div id="n95" class="keys white"><span class="noteName">B</span></div>
+        </div>
+        
+        </div>       
+
+    <script type="text/javascript" src="midi.js"></script>
+    </body>
+</html>
