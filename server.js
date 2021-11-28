@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.get('/transcribe', (req, res) => {
+    res.render('transcribe')
+})
+
 app.get('/chords', (req, res) => {
     res.render('chords')
 })
