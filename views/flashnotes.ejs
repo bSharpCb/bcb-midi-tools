@@ -5,9 +5,10 @@
         <script type="text/javascript" src="lib/abcjs-basic-min.js"></script>
     </head>
     <body>
-
-        <div id="mu-canvas">
-            <button id="start-cards" onclick="flashStart()">Start</button>
+        <div id="mu-container">
+            <div id="mu-canvas">
+                <div id="fc-start-button" onclick="flashStart()">Start</div>
+            </div>
         </div>
 
         <div id="piano-ui">
@@ -138,7 +139,11 @@ K:C
 </textarea>
 </div>
 
-
+<div class="wrapper">
+    <h1>Time / 10 notes </h1>
+    <p><span id="seconds" class="time-display"></span></p>
+    <h2>Current record: <span id="best-time" class="time-display"></span></h2>
+    </div> 
       
         
         <div id="info">

@@ -2,6 +2,9 @@ function midiNoteToFrequency (note) {
     return Math.pow(2, ((note - 69) / 12)) * 440;
 }
 
+let cardStr = "[V: PianoRightHand]|";
+let cardCounter = 0;
+
 let context = new AudioContext(),
 oscillators = {};
 
@@ -47,7 +50,22 @@ function stopNote (frequency) {
     oscillators[frequency].disconnect();
 }
 
+let timerCount = 0.0;
+let bestTime = 0;
+
+
+function fcTimerStart(){
+    setInterval(myTimer, 100);
+}
+
+function myTimer() {
+  timerCount+=.1;
+  document.getElementById("seconds").innerHTML = `${timerCount.toFixed(1)} seconds`;
+}
+
+
 function makeSynth(){
+    fcTimerStart();
     navigator.requestMIDIAccess().then(function(access) {
         let inputs = access.inputs;
         inputs.forEach((input) => {
@@ -57,6 +75,19 @@ function makeSynth(){
                 if(message.data[0] === 144 && message.data[2] > 0){
                     pressNote(message.data);
                     if(abcDict[message.data[1]-27] === thisCard){
+                        if(cardCounter >= 9) {
+                            if(bestTime == 0){
+                                document.getElementById("best-time").innerHTML = `${timerCount.toFixed(1)} seconds`;
+                                bestTime = timerCount;
+                            }else if (timerCount < bestTime) {
+                                bestTime = timerCount;
+                                document.getElementById("best-time").innerHTML = `${timerCount.toFixed(1)} seconds`;
+                            }
+                            cardCounter = 0;
+                            document.getElementById("right").value = "[V: PianoRightHand]|";
+                            timerCount = 0.0;
+                            abcRender();
+                        }
                         getRandNote(flashRight);
                     }else{
                         console.log(message.data[1]);
@@ -94,18 +125,20 @@ function abcRender() {
     let abcRight = document.getElementById("right").value;
     let abcLeft = document.getElementById("left").value;
     let abcString = abcHeader + abcRight + abcLeft;
-    window.ABCJS.renderAbc("mu-canvas", abcString);
+    window.ABCJS.renderAbc("mu-canvas", abcString, { responsive: "resize"});
 }
 
 let thisCard = '';
 const flashRight = ['A,','_B,','B,','C','_D','D','_E','E','F','^F','G','_A','A','_B','B','c','_d','d','_e','e','f','^f','g','_a','a','_b','b','c\''];
 const flashLeft = ['C,,','_D,,','D,,','_E,,','E,,','F,,','^F,,','G,,','_A,,','A,,','_B,,','B,,','C,','_D,','D,','_E,','E,','F,','^F,','G,','_A,','A,','_B,','B,','C'];
 
-let cardStr = "[V: PianoRightHand]|";
+
 
 function getRandNote(flashArray){
     thisCard = flashArray[Math.floor(Math.random() * flashArray.length)];
     document.getElementById(handStaff).value += thisCard;
+    cardCounter += 1;
+    console.log(cardCounter);
     abcRender();
 }
 
