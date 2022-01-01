@@ -52,20 +52,43 @@ function stopNote (frequency) {
 
 let timerCount = 0.0;
 let bestTime = 0;
-
-
-function fcTimerStart(){
-    setInterval(myTimer, 100);
-}
+let timer;
 
 function myTimer() {
   timerCount+=.1;
   document.getElementById("seconds").innerHTML = `${timerCount.toFixed(1)} seconds`;
 }
 
+function updateFC() {
+    document.getElementById('fc-prog-num').innerHTML = cardCounter;
+    cardCounter += 1;
+    let btDiv = document.getElementById("best-time");
+    switch (cardCounter) {
+        case 1:
+            timer = setInterval(myTimer, 100);
+            getRandNote(flashRight);
+            break;
+        case 11:
+            if(bestTime == 0){
+                btDiv.innerHTML = `${timerCount.toFixed(1)} seconds`;
+                bestTime = timerCount;
+            }else if (timerCount < bestTime) {
+                bestTime = timerCount;
+                btDiv.innerHTML = `${timerCount.toFixed(1)} seconds`;
+            }
+            cardCounter = 0;
+            document.getElementById("right").value = "[V: PianoRightHand]|C2";
+            thisCard = 'C';
+            timerCount = 0.0;
+            abcRender();
+            clearInterval(timer)
+            break;
+        default:
+            getRandNote(flashRight);
+    }
+}
 
 function makeSynth(){
-    fcTimerStart();
     navigator.requestMIDIAccess().then(function(access) {
         let inputs = access.inputs;
         inputs.forEach((input) => {
@@ -75,20 +98,7 @@ function makeSynth(){
                 if(message.data[0] === 144 && message.data[2] > 0){
                     pressNote(message.data);
                     if(abcDict[message.data[1]-27] === thisCard){
-                        if(cardCounter >= 9) {
-                            if(bestTime == 0){
-                                document.getElementById("best-time").innerHTML = `${timerCount.toFixed(1)} seconds`;
-                                bestTime = timerCount;
-                            }else if (timerCount < bestTime) {
-                                bestTime = timerCount;
-                                document.getElementById("best-time").innerHTML = `${timerCount.toFixed(1)} seconds`;
-                            }
-                            cardCounter = 0;
-                            document.getElementById("right").value = "[V: PianoRightHand]|";
-                            timerCount = 0.0;
-                            abcRender();
-                        }
-                        getRandNote(flashRight);
+                        updateFC();
                     }else{
                         console.log(message.data[1]);
                         console.log(abcDict[message.data[1]-27]);
@@ -129,7 +139,12 @@ function abcRender() {
 }
 
 let thisCard = '';
-const flashRight = ['A,','_B,','B,','C','_D','D','_E','E','F','^F','G','_A','A','_B','B','c','_d','d','_e','e','f','^f','g','_a','a','_b','b','c\''];
+const flashRight = ['C','_D','D','_E','E','F','^F','G','_A','A','_B','B','c','_d','d','_e','e','f','^f','g','_a','a'];
+    
+    //'A,','_B,','B,',
+//'_b','b','c\''];
+
+
 const flashLeft = ['C,,','_D,,','D,,','_E,,','E,,','F,,','^F,,','G,,','_A,,','A,,','_B,,','B,,','C,','_D,','D,','_E,','E,','F,','^F,','G,','_A,','A,','_B,','B,','C'];
 
 
@@ -137,12 +152,12 @@ const flashLeft = ['C,,','_D,,','D,,','_E,,','E,,','F,,','^F,,','G,,','_A,,','A,
 function getRandNote(flashArray){
     thisCard = flashArray[Math.floor(Math.random() * flashArray.length)];
     document.getElementById(handStaff).value += thisCard;
-    cardCounter += 1;
-    console.log(cardCounter);
     abcRender();
 }
 
 function flashStart() {
     makeSynth();
-    getRandNote(flashRight);
+    document.getElementById("right").value = "[V: PianoRightHand]|C2";
+    thisCard = 'C';
+    abcRender();
 }
