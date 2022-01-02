@@ -1,5 +1,6 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -24,4 +25,4 @@ app.get('/flashnotes', (req, res) => {
     res.render('flashnotes')
 })
 
-app.listen(8080)
+app.listen(PORT, () => console.log(`Server listening in port ${PORT}`))
