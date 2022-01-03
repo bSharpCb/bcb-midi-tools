@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>meleenome</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    
+    <audio id="shine" src="./sounds/whistle.wav" preload="auto"></audio>
+    <audio id="jump" src="./sounds/short.wav" preload="auto"></audio>
+    <audio id="shield" src="./sounds/shield.wav" preload="auto"></audio>
+
+    <h1 id="header">Melee Metronome</h1>
+    <div id="frameData">
+        test content
+    </div> 
+    
+    <div id="buttons">
+        <div id="custom">
+            <h1>Custom</h1>
+            <div class="nomeParams">
+                <div>Playback speed</div>
+                <input type="text" value="1" id="pbSpeed">
+            </div>
+            <div class="nomeParams">
+                <div>Tick duration (set to 17 for 60fps)</div>
+                <input type="text" value="17" id="tickSpeed">
+            </div>
+            <div class="nomeParams">
+                <div>Loop end frame</div>
+                <input type="text" value="59" id="endFrame">    
+            </div>
+            <div class="nomeParams">
+                <div>Custom pattern array</div>
+                <input type="text" value="input an array of integer values between 0-60 where each value represents the index of a frame/tick that should be transcribed" id="customPattern">
+                <button onclick="addPattern()">Add Custom Array</button>
+            </div>
+        </div>
+
+        <div id="presets">
+            <div class="nomeParams">
+                <div>BPM</div>
+                <input type="text" value="85" id="bpm">
+            </div>
+            <div class="nomeParams">
+                <div>FPS</div>
+                <input type="text" value="60" id="fps">
+            </div>
+            <div id="presetButtons">
+                <button onclick="bpmSelect()">set to bpm 1/16 notes</button>
+                <button onclick="setFPS()">60 FPS Mode</button>
+            </div>
+        </div>
+
+        <div id="patterns">
+            <button onclick="startNome(0)">multishine</button>
+            <button onclick="startNome(1)">waveshine</button>
+            <button onclick="startNome(2)">bluku</button>
+            <button onclick="startNome(3)">custom</button>
+            <button onclick="startNome('stop')">STOP</button>
+        </div>
+    </div>
+    <div id="info">
+        <p>
+            Information for Falco's framedata/hitboxes/etc can be found <a href="https://smashboards.com/threads/falco-hitboxes-and-frame-data.300397/">here</a>
+        </p>
+    </div>
+    
+    <script src="./meleenome.js" type="text/javascript"></script>
+<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=xIaua6UFltX4MBWFQAl4TZJhYcXBPM0IXNm6VV8iSAX7gb2GttOxm1bKlOMo"></script></span>
+</body>
+</html>

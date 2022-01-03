@@ -1,0 +1,45 @@
+body {
+    background-color: blanchedalmond;
+}
+
+#frameData {
+    float: left;
+    min-height: 500px;
+    margin: auto;
+    width: 500px;
+    padding: 50px 5px 5px 10px;
+    text-align: center;
+    font-size: 32px;
+    background-color: cadetblue;
+    border: solid 12px grey;
+}
+
+#frameData img {
+    min-height: 450px;
+}
+
+#header {
+    margin: 10px;
+    text-align: center;
+    font-size: 48px;
+}
+
+#buttons {
+    text-align: left;
+}
+
+#patterns {
+    padding: 10px;
+}
+
+#info {
+    text-align: center;
+    font-size: 32px;
+}
+
+.nomeParams {
+    background-color: mediumseagreen;
+    margin: 10px;
+    text-align: center;
+    font-size: 24px;
+}
