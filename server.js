@@ -25,4 +25,8 @@ app.get('/flashnotes', (req, res) => {
     res.render('flashnotes')
 })
 
+app.get('/blog', (req, res) => {
+    res.render('blog')
+})
+
 app.listen(PORT, () => console.log(`Server listening in port ${PORT}`))

@@ -1,0 +1,276 @@
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: slateblue;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+  }
+
+  .sidenav h1 {
+	  margin-left: 10px;
+	  color: white;
+  }
+  
+  .sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+	color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+  }
+  
+#top-bar {
+	width: 100%;
+	position: fixed;
+	padding: .7em 0 .7em .7em;
+	top: 0;
+	left: 0;
+	background-color: indigo;
+	border: 3px solid black;
+  }
+
+#title-top {
+    float: left;
+}
+
+#top-bar img{
+    float: left;
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#top-bar img:hover {
+    background-color: red;
+}
+
+  
+
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+    background: cornflowerblue;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+  }
+
+  .header p {
+      font-size: 16px;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    width: 71%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 23%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 70%;
+    padding: 20px;
+    border: solid 10px slategrey;
+    border-radius: 3%;
+  }
+
+  .fakeimg img {
+      width: 100%;
+      height: auto;
+  }
+  
+  /* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border: solid 10px slategrey;
+    border-radius: 3%;
+}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  
+/* imessage stuff */
+.imessage {
+    font-family: "SanFrancisco";
+    font-size: 1.25rem;
+    max-width: 600px;
+  }
+  
+  .imessage p {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    max-width: 75%;
+    padding: 0.5rem .875rem;
+    position: relative;
+    word-wrap: break-word;
+  }
+  
+  .imessage p::before,
+  .imessage p::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+  }
+  
+  
+  
+  
+  p.from-them {
+    align-items: flex-start;
+    background-color: #e5e5ea;
+    color: #000;
+  }
+  
+  p.from-them:before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #e5e5ea;
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+  }
+  
+  p.from-them::after {
+    background-color:indigo;
+    border-bottom-right-radius: 0.5rem;
+    left: 20px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+  }
+  
+  p[class^="from-"].emoji {
+    background: none;
+    font-size: 2.5rem;
+  }
+  
+  p[class^="from-"].emoji::before {
+    content: none;
+  }
+  
+  .no-tail::before {
+    display: none;
+  }
+  
+  .margin-b_none {
+    margin-bottom: 0 !important;
+  }
+  
+  .margin-b_one {
+    margin-bottom: 1rem !important;
+  }
+  
+  .margin-t_one {
+    margin-top: 1rem !important;
+  }
+  /* general styling */
+  @font-face {
+    font-family: "SanFrancisco";
+    src:
+      url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+      url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+  }
+  
+  .imessage {  
+    font-family: -apple-system, 
+      BlinkMacSystemFont, 
+      "Segoe UI", 
+      Roboto, 
+      Oxygen-Sans, 
+      Ubuntu, 
+      Cantarell, 
+      "Helvetica Neue", 
+      sans-serif;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .container {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1rem;
+  }
+  
+  @media screen and (max-width: 800px) {
+    body {
+      margin: 0 0.5rem;
+    }
+  
+    .imessage {
+      font-size: 1.05rem;
+      margin: 0 auto 1rem;
+      max-width: 600px;
+      padding: 0.25rem 0.875rem;
+    }
+  
+    .imessage p {
+      margin: 0.5rem 0;
+    }
+  }
