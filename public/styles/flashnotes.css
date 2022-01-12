@@ -7,6 +7,86 @@ body {
 	font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: slateblue;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+  }
+
+  .sidenav h1 {
+	  margin-left: 10px;
+	  color: white;
+  }
+  
+  .sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+	color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+  }
+  
+#top-bar {
+	width: 100%;
+	position: fixed;
+	padding: .7em 0 .7em .7em;
+	top: 0;
+	left: 0;
+	background-color: indigo;
+	border: 3px solid black;
+  }
+
+#title-top {
+    float: left;
+}
+
+#top-bar img{
+    float: left;
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#top-bar img:hover {
+    background-color: red;
+}
+
 
 textarea {
 	display: flex;
@@ -20,10 +100,11 @@ textarea {
 }
 
 #mu-canvas {
-	margin: 0;
+	margin-top: 25vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: white;
 }
 
 #piano-ui {
@@ -50,219 +131,155 @@ textarea {
 	z-index: 2;
 }
 
-#whiteboard {
-	background-color: whitesmoke;
-	min-height: 50%;
-	border: 8px gray solid;
-	margin-bottom: 25px;
-	display: flex;
-}
-
-#wb-words {
-	width: 50%;
-	margin-left: 10px;
-	font-size: 24px;
-	font-weight: bold;
-	color: rgb(14, 14, 194);
-	font-family: monoco;
-	line-height: 1.5;
-	letter-spacing: 0.5px;
-}
-
-.chName:hover {
-	color: maroon;
-}
-
-.rNote:hover {
-	color: green;
-}
-
-.white .noteName {
-	color: white;
-	font-size: 16px;
-	font-weight: bold;
-	margin-left: 15px;
-	margin-right: 15px;
-}
-
-.black .noteName {
-	font-size: 16px;
-	font-weight: bold;
-	color:black;
-	margin-left: 4px;
-	margin-right: 4px;
-}
-
-.black .noteName:hover {
-	color: white;
-}
-
-.white .noteName:hover {
-	color: black;
-}
-
-
-
-#wb-figure {
-    width: 50%;
-    margin-left: 15%;
-    font-size: 36px;
-    line-height: 1.7;
-    letter-spacing: 1.5px;
-    color: darkorchid;
-}
-
 #content {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-a {
-    text-decoration: none;
-}
-a:hover {
-    color: slateblue;
-}
-
-#bcb-menu:hover {
-    color: white;
-	
-}
-
-#bcb-menu {
-	font-size:60px;
-	font-weight: bold;
-	cursor:pointer;
-}
-
-.sidenav {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #111;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 60px;
-  }
-
-  .sidenav h1 {
-	  margin-left: 10px;
-	  color: white;
-  }
-
-  #toggle-osc-box {
-	  margin-top: 16px;
-  }
-
-  #osc-box {
-	  display: none;
-  }
-  
-  .sidenav a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-  }
-
-  .sidenav select {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 16px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-	color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-  }
-  
-  
-  @media screen and (max-height: 450px) {
-	.sidenav {padding-top: 15px;}
-	.sidenav a {font-size: 18px;}
-  }
-
-#wordbank-open {
-	float: right;
-	font-size: 24px;
-}
-
-
-
-  /* The Modal css below */
-p#lookup-term {
-    font-size: 24px;
-}
-
-#wordbank > p{
-	font-weight: bold;
-	color: green;
-	padding-left: 20px;
-}
-
-#wordbank > p:hover{
-	color: white;
-}
-
-#wordbank {
-	background-color: black;
-	width: 20%;
-	float: right;
-	overflow: auto;
-	display: none;
-}
-
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-	font-family: sans-serif;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-	background-color: #fefefe;
-	margin: 15% auto; /* 15% from the top and centered */
+/* Footer */
+.footer {
 	padding: 20px;
-	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
+	text-align: center;
+	background: indigo;
+	color: antiquewhite;
+	margin-top: 20px;
   }
   
-  /* The Close Button */
-  .close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+  #links a{
+	background-color: dimgray;
+	font-size: 48px;
+	border-radius: 15%;
+  }
+	
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+	.leftcolumn, .rightcolumn {
+	  width: 100%;
+	  padding: 0;
+	}
+	.header {
+	  margin-top: 16vh;
+	  font-size: small;
+	}
+	#top-bar img {
+	  width: 22%;
+	}
   }
   
-  .close:hover,
-  .close:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
+  
+  /* imessage stuff */
+  .imessage {
+	font-family: "SanFrancisco";
+	font-size: 2.25rem;
+	max-width: 600px;
   }
+	
+  .imessage p {
+	border-radius: 1.15rem;
+	line-height: 1.25;
+	max-width: 75%;
+	padding: 0.5rem .875rem;
+	position: relative;
+	word-wrap: break-word;
+  }
+	
+  .imessage p::before,
+  .imessage p::after {
+	bottom: -0.1rem;
+	content: "";
+	height: 1rem;
+	position: absolute;
+  }
+  
+  p.from-them {
+	align-items: flex-start;
+	background-color: #e5e5ea;
+	color: #000;
+  }
+	
+  p.from-them:before {
+	border-bottom-right-radius: 0.8rem 0.7rem;
+	border-left: 1rem solid #e5e5ea;
+	left: -0.35rem;
+	transform: translate(0, -0.1rem);
+  }
+	
+  p.from-them::after {
+	background-color:indigo;
+	border-bottom-right-radius: 0.5rem;
+	left: 20px;
+	transform: translate(-30px, -2px);
+	width: 10px;
+  }
+	
+  p[class^="from-"].emoji {
+	background: none;
+	font-size: 2.5rem;
+  }
+	
+  p[class^="from-"].emoji::before {
+	content: none;
+  }
+	
+  .no-tail::before {
+	display: none;
+  }
+	
+  .margin-b_none {
+	margin-bottom: 0 !important;
+  }
+	
+  .margin-b_one {
+	margin-bottom: 1rem !important;
+  }
+	
+  .margin-t_one {
+	margin-top: 1rem !important;
+  }
+  
+  /* general styling */
+  @font-face {
+	font-family: "SanFrancisco";
+	src:
+	  url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+	  url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+  }
+	
+  .imessage {  
+	font-family: -apple-system, 
+	  BlinkMacSystemFont, 
+	  "Segoe UI", 
+	  Roboto, 
+	  Oxygen-Sans, 
+	  Ubuntu, 
+	  Cantarell, 
+	  "Helvetica Neue", 
+	  sans-serif;
+	font-weight: normal;
+	margin: 0;
+  }
+	
+  .container {
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 1rem;
+  }
+  
+  @media screen and (max-width: 800px) {
+	body {
+	  margin: 0 0.5rem;
+	}
+	
+  .imessage {
+	font-size: 1.05rem;
+	margin: 0 auto 1rem;
+	max-width: 600px;
+	padding: 0.25rem 0.875rem;
+	}
+	
+  .imessage p {
+	  margin: 0.5rem 0;
+	}
+  }
+  /*end imessage stuff*/
 
   .wrapper {
 	  text-align: center;

@@ -1,10 +1,28 @@
 <html>
     <head>
         <title>Virtual MIDI Keyboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="styles/flashnotes.css">
         <script type="text/javascript" src="lib/abcjs-basic-min.js"></script>
     </head>
     <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="/">Home</a>
+                <a href="/flashnotes">MIDI Practice Flashcards</a>
+                <a href="/lesson1">Chord names </a>
+                <a href="/transcribe">Transcribe MIDI Inputs</a>
+                <a href="/whiteboard">What's on my Whiteboard?</a>
+        </div>
+        <div id="top-bar">
+            <img src="/img/logo-alpha.png" onclick="openNav()">
+            <span id="title-top">
+                <div class="imessage">
+                    <p class="from-them">Sight reading drills: see how quickly you can play 10 notes on reaction</p>
+                  </div>
+            </span>
+        </div>
         <div id="mu-container">
             <div id="mu-canvas">
                 <div id="fc-start-button" onclick="flashStart()">Start</div>
@@ -147,15 +165,14 @@ K:C
     </div> 
       
         
-        <div id="info">
-            <b>Brad Shaffer</b>
-            <br>
-            <b>bradsha0802@gmail.com</b>
-        </div>
+    <div class="footer">
+        <h2>B#Cb</h2>
         <div id="links">
-            <a href="https://github.com/bsharpcb">Github</a>
-            <a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/">LinkedIn</a>
+            <a href="https://github.com/bsharpcb"><i class="fa fa-github" style="font-size:48px;"></i></a>
+            <a href="https://twitter.com/bSharpCb"><i class="fa fa-twitter" style="font-size:48px;"></i></a>
+            <a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/"><i class="fa fa-linkedin" style="font-size:48px;"></i></a>
         </div>
+      </div>
         
     </div>
     <script type="text/javascript" src="flashcards.js"></script>
