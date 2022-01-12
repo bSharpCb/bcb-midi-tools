@@ -2,9 +2,18 @@
     <head>
         <title>What's on my Whiteboard?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="styles/blog.css">
     </head>
     <body>
+      
+        <!-- The Modal -->
+        <div id="wb-img-modal" class="modal">
+          <span class="close" onclick="closeWbModal()">&times;</span>
+          <img class="modal-content" id="img01">
+          <div id="caption"></div>
+        </div>
+
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="/flashnotes">flashcards</a>
@@ -21,17 +30,19 @@
             </span>
         </div>
         <div class="header">
-            <p>Pictures of my whiteboard accompanied by caffeinated explanations of context</p>
+            <h1>Pictures of my whiteboard + caffeinated explanations</h1>
             <p>Music theory, fighting games, programming, education, communication, 
                 and whatever I happen to find fascinating that day</p>
           </div>
-          
+
+
+
           <div class="row">
             <div class="leftcolumn">
               <div class="card">
                 <h2>10 Scales for Jazz Improvisation</h2>
                 <h5>Listening to Gary Burton's improvisation lecture (<a href="https://youtu.be/t2txO_u2eNg">Loyola University, July 2011</a>), learning about 3 new scales, and trying to internalize their relevance within the context of the 7 major modes. Jan 9th, 2022</h5>
-                <div class="fakeimg"><img src="/img/wb-jan9sh.jpg"></div>
+                <div class="fakeimg"><img id="wb-010922" class="wb-img" alt="Symmetrical diminished has 8 notes isn't that WEIRD HMM I WONDER WHY THEY CALL IT SYMMETRICAL " src="/img/wb-jan9sh.jpg" onclick="wbModal('wb-010922')"></div>
                 <p>short version (expand tomorrow)
                     - stuff i knew: 7 modes of major
                     - stuff thats new: altered, symmetrical diminished, lydian flat7
@@ -46,24 +57,23 @@
               </div>
               <div class="card">
                 <h3>If you wanna say hi:</h3>
-                <div class="fakeimg"><a href="https://github.com/bsharpcb">Github</a>
+                <div class="fakeimg"><a href="https://github.com/bsharpcb"><i class="fa fa-github" style="font-size:48px;"></i> Github</a>
                 </div><br>
-                <div class="fakeimg"><a href="https://twitter.com/bSharpCb">Twitter</a></div><br>
-                <div class="fakeimg"><a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/">LinkedIn</a></div>
+                <div class="fakeimg"><a href="https://twitter.com/bSharpCb"><i class="fa fa-twitter" style="font-size:48px;"></i> Twitter</a></div><br>
+                <div class="fakeimg"><a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/"><i class="fa fa-linkedin" style="font-size:48px;"></i> LinkedIn</a></div>
               </div>
             </div>
           </div>
           
           <div class="footer">
             <h2>B#Cb</h2>
-            <div id="info">
-                <b>bradsha0802@gmail.com</b>
-            </div>
             <div id="links">
-                <a href="https://github.com/bsharpcb">Github</a>
-                <a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/">LinkedIn</a>
+                <a href="https://github.com/bsharpcb"><i class="fa fa-github" style="font-size:48px;"></i></a>
+                <a href="https://twitter.com/bSharpCb"><i class="fa fa-twitter" style="font-size:48px;"></i></a>
+                <a href="https://www.linkedin.com/in/bradley-shaffer-9a8b5772/"><i class="fa fa-linkedin" style="font-size:48px;"></i></a>
             </div>
           </div>
           <script type="text/javascript" src="midi.js"></script>
+          <script type="text/javascript" src="utility.js"></script>
     </body>
 </html>
