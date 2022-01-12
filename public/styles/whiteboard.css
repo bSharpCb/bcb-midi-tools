@@ -5,6 +5,10 @@ a:hover {
     color: slateblue;
 }
 
+li {
+  margin: 5px;
+}
+
 .sidenav {
 	height: 100%;
 	width: 0;
